@@ -1,21 +1,18 @@
-.head{
-    text-align: center;
-    color: deeppink;
+.head {
+  text-align: center;
+  color: deeppink;
 }
-.lorem{
-    color: deeppink;
-    text-align: center;
+.lorem {
+  color: deeppink;
+  text-align: center;
 }
-.delete{
-    background-color: darksalmon;
-    color: deeppink;
-    font-weight: 800;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 5px;
-    border-color: blanchedalmond;
-    display: block;
-    margin: auto;
-}
-.body{
-    color: darksalmon;
+.delete {
+  background-color: darksalmon;
+  color: deeppink;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+  border-color: blanchedalmond;
+  display: block;
+  margin: auto;
 }
