@@ -1,18 +1,175 @@
-.head {
-  text-align: center;
-  color: deeppink;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
-.lorem {
-  color: deeppink;
-  text-align: center;
+
+body {
+  background: linear-gradient(135deg, #ffcce7, #ff99cc, #ff66b3);
+  color: #333;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
-.delete {
-  background-color: darksalmon;
-  color: deeppink;
-  font-weight: 800;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 5px;
-  border-color: blanchedalmond;
-  display: block;
-  margin: auto;
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 10%;
+  color: rgb(68, 29, 52);
+
+  /* Layer gradient on top of background image */
+  background:
+    linear-gradient(135deg, rgba(255, 204, 231, 0.6), rgba(255, 102, 179, 0.6)),
+    /* pink futuristic gradient overlay */ url("kit.jpg") no-repeat center
+      center; /* your bakery image */
+  background-size: cover; /* make image cover entire hero */
+  background-blend-mode: overlay; /* blends gradient and image smoothly */
+}
+
+.hero-text h1 {
+  font-size: 80px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+
+.hero-text p {
+  font-size: 22px;
+  margin: 30px 0;
+  max-width: 600px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #e58aa3;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(229, 138, 163, 0.4);
+}
+
+.cta:hover {
+  background: #d97790;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(229, 138, 163, 0.55);
+}
+
+.cta:active {
+  transform: scale(0.96);
+}
+
+.hero-image img {
+  max-width: 420px;
+}
+
+/* BEST SELLERS */
+.best-sellers {
+  background: linear-gradient(135deg, #ffcce7, #ff99cc, #ff66b3);
+  padding: 60px 10%;
+  text-align: center;
+  color: white;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.best-sellers h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.best-sellers-subtext {
+  margin-bottom: 40px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.cake-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.cake-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 30px;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+}
+
+.cake-card:hover {
+  background: pink;
+  transform: translateY(-5px);
+}
+
+.cake-card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.cake-card h3 {
+  margin-top: 15px;
+}
+
+/* ABOUT */
+.about {
+  padding: 80px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    /* soft overlay for readability */ url("lastcake.jpg") no-repeat center
+      center;
+  background-size: cover;
+  color: #333;
+  border-radius: 30px; /* optional for smooth edges */
+}
+
+.about h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  color: #333;
+  line-height: 1.7;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 30px;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
 }
