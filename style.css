@@ -173,3 +173,30 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* AUTH FORMS */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 350px;
+}
+
+.auth-form input {
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.auth-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-link a {
+  color: #e58aa3;
+  font-weight: 600;
+  text-decoration: none;
+}
