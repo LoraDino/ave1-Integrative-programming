@@ -200,3 +200,274 @@ footer {
   font-weight: 600;
   text-decoration: none;
 }
+
+/* ===========================
+   FUTURISTIC DASHBOARD UI
+   LumiCakes – Glassmorphism
+   =========================== */
+
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(229, 138, 163, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 200, 214, 0.2),
+      transparent 40%
+    );
+}
+
+/* HEADER */
+.glass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #e58aa3;
+}
+
+.glass-nav a {
+  margin-left: 20px;
+  color: #e58aa3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.glass-nav a:hover {
+  text-decoration: underline;
+}
+
+/* DASHBOARD GRID */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 50px;
+}
+
+/* GLASS CARD */
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 15px 40px rgba(229, 138, 163, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* PROFILE CARD SPECIAL */
+.profile-glow {
+  text-align: center;
+  position: relative;
+}
+
+.profile-glow::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(229, 138, 163, 0.6),
+    rgba(255, 215, 228, 0.6)
+  );
+  z-index: -1;
+  filter: blur(18px);
+}
+
+/* AVATAR */
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid rgba(229, 138, 163, 0.6);
+  margin-bottom: 15px;
+}
+
+.avatar {
+  box-shadow:
+    0 0 0 4px rgba(229, 138, 163, 0.6),
+    0 0 25px rgba(229, 138, 163, 0.7);
+}
+
+/* TEXT */
+.muted {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.profile-info p {
+  margin: 10px 0;
+}
+
+/* WIDE CARD */
+.wide {
+  grid-column: span 2;
+}
+
+/* ACTION CARD */
+.action-card {
+  text-align: center;
+}
+
+/* SETTINGS PANEL */
+.settings-panel {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* FORM */
+.futuristic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.futuristic-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.futuristic-form input,
+.futuristic-form select {
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+/* FUTURISTIC BUTTON */
+.futuristic-btn {
+  margin-top: 15px;
+  background: linear-gradient(135deg, #e58aa3, #ffb6c9);
+  color: white;
+  border-radius: 30px;
+  padding: 12px 30px;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.futuristic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(229, 138, 163, 0.5);
+}
+
+/* ===============================
+   FUTURISTIC BACKGROUND EFFECT
+   LumiCakes Dashboard Pages
+   =============================== */
+
+.futuristic-bg {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 182, 201, 0.35),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(229, 138, 163, 0.35),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #fff1f6, #fde2ea);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* FLOATING GLOW ORBS */
+.futuristic-bg::before,
+.futuristic-bg::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.45;
+  z-index: -1;
+}
+
+.futuristic-bg::before {
+  background: #e58aa3;
+  top: -120px;
+  left: -120px;
+}
+
+.futuristic-bg::after {
+  background: #ffb6c9;
+  bottom: -140px;
+  right: -140px;
+}
+
+/* ===========================
+   NAVIGATION BUTTONS
+   =========================== */
+
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.65);
+  color: #e58aa3;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 12px;
+  border: 1px solid rgba(229, 138, 163, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.nav-btn:hover {
+  background: linear-gradient(135deg, #e58aa3, #ffb6c9);
+  color: white;
+  box-shadow: 0 8px 25px rgba(229, 138, 163, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Logout emphasis */
+.nav-btn.danger {
+  color: #c0392b;
+  border-color: rgba(192, 57, 43, 0.4);
+}
+
+.nav-btn.danger:hover {
+  background: linear-gradient(135deg, #e74c3c, #ff7675);
+  color: white;
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.futuristic-bg::before,
+.futuristic-bg::after {
+  animation: floatGlow 12s ease-in-out infinite;
+}
