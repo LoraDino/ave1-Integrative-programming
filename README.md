@@ -3,7 +3,10 @@
 LumiCakes
 
 # Activity Name
+<<<<<<< HEAD
 
+=======
+>>>>>>> 57bbb4d69a776b536c8af62d55d9bd41b7bc4193
 Login And Sign in
 
 # Description
@@ -26,6 +29,7 @@ Gradient Overlay
 Yes, i used chatgpt to help me generate CSS layout like the shadow and hover effects and also improve some of my wording and pharasing and to generate color combos. All the code was finalized and reviewed by me.
 
 # Learning Reflection
+<<<<<<< HEAD
 
 From this activity, I learned how to create a modern responsive landing page even though its still not useable i still find it challenging when using HTML and CSS. Tgithe most challenging was the part when combining background images with gradient overlays while making it readable overall i learned a lot from this activity and hopefully I'll learned more in the future.
 
@@ -41,15 +45,32 @@ Added Profile and Settings pages to the LumiCakes project. Includes a user profi
 
 # Technologies Used
 
+=======
+From this activity, I learned how to create a modern responsive landing page even though its still not useable i still find it challenging when using HTML and CSS. Tgithe most challenging was the part when combining background images with gradient overlays while making it readable overall i learned a lot from this activity and hopefully I'll learned more in the future. 
+
+-----------------
+
+# Activity Name
+Profile And Account Settings navigation
+
+# Description
+Added Profile and Settings pages to the LumiCakes project. Includes a user profile card with avatar and stats, a static settings form, and visible navigation buttons.
+
+# Technologies Used
+>>>>>>> 57bbb4d69a776b536c8af62d55d9bd41b7bc4193
 HTML
 CSS
 
 # Features
+<<<<<<< HEAD
 
+=======
+>>>>>>> 57bbb4d69a776b536c8af62d55d9bd41b7bc4193
 Profile Card with Avatar  
 User Stats Section  
 Settings Form (Static UI)  
 Futuristic Glassmorphism Background  
+<<<<<<< HEAD
 Visible Navigation Buttons (Home, Logout, Back, Settings)
 
 # AI Assistance Disclosure
@@ -58,4 +79,12 @@ Yes, I used ChatGPT to help me generate CSS layout like the glass-panel shadows,
 
 # Learning Reflection
 
+=======
+Visible Navigation Buttons (Home, Logout, Back, Settings) 
+
+# AI Assistance Disclosure
+Yes, I used ChatGPT to help me generate CSS layout like the glass-panel shadows, hover effects, and gradient buttons, as well as to suggest layout improvements and page structure. All the code was finalized and reviewed by me.  
+
+# Learning Reflection
+>>>>>>> 57bbb4d69a776b536c8af62d55d9bd41b7bc4193
 I learned how to extend a static HTML project into a multi-page UI with consistent design and navigation. Designing the Profile and Settings pages to look visually full and balanced was challenging. I also improved my skills with CSS techniques like glassmorphism, gradients, and cards, and gained a better understanding of UI structure and navigation flow.
