@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | LumiCakes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="futuristic-bg">
+    <!-- Admin Header -->
+    <header class="glass-header">
+      <div class="logo">LumiCakes Admin</div>
+      <nav class="glass-nav">
+        <a href="profile.html" class="nav-btn">Profile</a>
+        <a href="logout.html" class="nav-btn danger">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <section class="dashboard-grid" style="padding: 60px 10%; gap: 40px">
+      <!-- Welcome Card -->
+      <div
+        class="glass-card profile-glow wide"
+        style="padding: 50px; text-align: center"
+      >
+        <!-- Reusing login avatar picture -->
+        <img
+          src="profile.jpg"
+          alt="Admin Avatar"
+          class="avatar"
+          style="width: 160px; height: 160px; margin-bottom: 25px"
+        />
+        <h2 style="font-size: 32px; margin-bottom: 15px">Welcome Admin</h2>
+        <p class="muted" style="font-size: 18px">
+          Hello Admin! You can manage users, update profiles, and track activity
+          from here.
+        </p>
+      </div>
+
+      <!-- Action Cards -->
+      <div class="glass-card action-card" style="padding: 30px">
+        <h3 style="margin-bottom: 15px">Manage Users</h3>
+        <p style="margin-bottom: 20px">
+          Maintain full control over your system by adding new users, updating
+          existing profiles, or removing inactive accounts. Regularly review
+          user roles and permissions to ensure smooth operations and maintain
+          data security.
+        </p>
+        <a href="manageUser.html" class="nav-btn">Go</a>
+      </div>
+
+      <div class="glass-card action-card" style="padding: 30px">
+        <h3 style="margin-bottom: 15px">Profile Settings</h3>
+        <p style="margin-bottom: 20px">
+          View and update your admin profile to keep your information current.
+          Ensure your contact details and security settings are always up to
+          date for safe system management.
+        </p>
+        <a href="profile.html" class="nav-btn">Go</a>
+      </div>
+
+      <div class="glass-card action-card" style="padding: 30px">
+        <h3 style="margin-bottom: 15px">Logout</h3>
+        <p style="margin-bottom: 20px">
+          End your session securely to protect system data. Always log out after
+          completing your tasks, especially when using shared devices.
+        </p>
+        <a href="logout.html" class="nav-btn danger">Logout</a>
+      </div>
+    </section>
+
+    <!-- Admin Access Protection -->
+    <script>
+      const role = localStorage.getItem("role");
+      if (role !== "admin") {
+        alert("Access denied. Admins only.");
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>

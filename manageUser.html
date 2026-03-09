@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Users | LumiCakes</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Table styling */
+      .glass-table-card {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 20px;
+        padding: 30px;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 15px 40px rgba(229, 138, 163, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        margin: 50px auto;
+        max-width: 900px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        font-size: 16px;
+      }
+
+      th {
+        background: rgba(229, 138, 163, 0.6);
+        color: white;
+        border-radius: 10px;
+      }
+
+      td {
+        background: rgba(255, 255, 255, 0.6);
+      }
+
+      button.delete-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #e58aa3, #ffb6c9);
+        color: white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      button.delete-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(229, 138, 163, 0.5);
+      }
+
+      .add-user-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #e58aa3, #ffb6c9);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .add-user-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(229, 138, 163, 0.5);
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 36px;
+        color: #e58aa3;
+      }
+    </style>
+  </head>
+
+  <body class="futuristic-bg">
+    <h1>Manage Users</h1>
+
+    <a
+      href="admin.html"
+      class="nav-btn"
+      style="margin-bottom: 20px; display: inline-block"
+      >← Back to Dashboard</a
+    >
+
+    <div class="glass-table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="userTable">
+          <tr>
+            <td>1</td>
+            <td>Ana</td>
+            <td>ana@email.com</td>
+            <td>
+              <button class="delete-btn" onclick="deleteRow(this)">
+                Delete
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Juan</td>
+            <td>juan@email.com</td>
+            <td>
+              <button class="delete-btn" onclick="deleteRow(this)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a href="addUser.html" class="add-user-btn">Add New User</a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
