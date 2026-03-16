@@ -88,3 +88,25 @@ Yes, I used ChatGPT to help me generate CSS layout like the glass-panel shadows,
 # Learning Reflection
 >>>>>>> 57bbb4d69a776b536c8af62d55d9bd41b7bc4193
 I learned how to extend a static HTML project into a multi-page UI with consistent design and navigation. Designing the Profile and Settings pages to look visually full and balanced was challenging. I also improved my skills with CSS techniques like glassmorphism, gradients, and cards, and gained a better understanding of UI structure and navigation flow.
+
+
+# Activity Name
+API Integration Activity
+# Description
+A simple web page where users can search for desserts. The app sends a request to a public API and displays dessert results with images in a bakery-style layout.
+
+# Technologies Used
+HTML, CSS, JavaScript
+
+# Features
+Search for desserts
+Retrieves data from an API
+Displays results as cards with images
+Shows message if no results are found
+
+# AI Assistance Disclosure
+Yes, I used AI to assist me with debugging javascript, improve my CSS layout.
+
+# Learning Reflection
+During this activity, I learned how APIs can be used to connect a web application to external data sources. I learned how to use JavaScript and the fetch() method to send a request to an API, receive the JSON response, and display the data dynamically on the webpage. I also improved my understanding of organizing HTML, CSS, and JavaScript to create a working interface that allows users to search and view results.
+
