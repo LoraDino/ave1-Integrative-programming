@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Desserts</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* HEADER (same style) */
+      .glass-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 30px;
+        backdrop-filter: blur(12px);
+      }
+
+      .logo {
+        font-weight: bold;
+        color: #e58aa3;
+      }
+
+      .nav-btn {
+        padding: 10px 18px;
+        border-radius: 25px;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.4);
+        color: #444;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 6px 15px rgba(229, 138, 163, 0.25);
+        transition: all 0.25s ease;
+      }
+
+      .nav-btn:hover {
+        background: #e58aa3;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* PAGE */
+      .saved-section {
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      .saved-section h1 {
+        color: #e58aa3;
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      /* GRID */
+      #savedContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+        gap: 30px;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      /* CARD (same style as API) */
+      .dessert-card {
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 22px;
+        padding: 20px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 15px 40px rgba(229, 138, 163, 0.25);
+        text-align: center;
+      }
+
+      .dessert-card img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 10px;
+      }
+
+      .empty {
+        color: #777;
+        margin-top: 40px;
+      }
+
+      .delete-btn {
+        margin-top: 10px;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 20px;
+        background-color: #e58aa3;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body class="futuristic-bg">
+    <!-- HEADER -->
+    <header class="glass-header">
+      <div class="logo">LumiCakes 🍰</div>
+
+      <nav class="glass-nav">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="API.html">Browse</a>
+      </nav>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="saved-section">
+      <h1>Saved Desserts</h1>
+
+      <div id="savedContainer"></div>
+    </section>
+
+    <script>
+      const container = document.getElementById("savedContainer");
+
+      let saved = localStorage.getItem("savedDesserts");
+      saved = saved ? JSON.parse(saved) : [];
+
+      // EMPTY STATE
+      if (saved.length === 0) {
+        container.innerHTML = `<p class="empty">No saved items yet.</p>`;
+      } else {
+        saved.forEach((item) => {
+          container.innerHTML += `
+          <div class="dessert-card">
+            <img src="${item.image}">
+            <h3>${item.name}</h3>
+
+            <!-- BONUS DELETE BUTTON -->
+            <button class="delete-btn" onclick="deleteItem('${item.id}')">
+              Delete
+            </button>
+          </div>
+          `;
+        });
+      }
+
+      // BONUS: DELETE FUNCTION
+      function deleteItem(id) {
+        let saved = JSON.parse(localStorage.getItem("savedDesserts")) || [];
+
+        saved = saved.filter((item) => item.id !== id);
+
+        localStorage.setItem("savedDesserts", JSON.stringify(saved));
+
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

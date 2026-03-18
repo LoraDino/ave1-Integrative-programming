@@ -1,17 +1,13 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>LumiCakes Dessert Finder</title>
 
     <link rel="stylesheet" href="style.css" />
 
     <style>
-      /* PAGE SECTION */
-
       .search-section {
         text-align: center;
         padding: 70px 20px;
@@ -31,8 +27,6 @@
         font-size: 16px;
       }
 
-      /* SEARCH BAR */
-
       .search-box {
         display: flex;
         justify-content: center;
@@ -51,8 +45,6 @@
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       }
 
-      /* RESULTS GRID */
-
       #results {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
@@ -60,8 +52,6 @@
         max-width: 1000px;
         margin: 0 auto;
       }
-
-      /* DESSERT CARD */
 
       .dessert-card {
         background: rgba(255, 255, 255, 0.35);
@@ -78,8 +68,6 @@
       .dessert-card:hover {
         transform: translateY(-8px);
       }
-
-      /* IMAGE */
 
       .dessert-img {
         width: 100%;
@@ -99,8 +87,6 @@
       .dessert-card:hover img {
         transform: scale(1.08);
       }
-
-      /* TEXT */
 
       .dessert-card h3 {
         margin-bottom: 6px;
@@ -123,6 +109,7 @@
         <a class="nav-btn" href="index.html">Home</a>
         <a class="nav-btn" href="#">Menu</a>
         <a class="nav-btn danger" href="#">Logout</a>
+        <a class="nav-btn" href="saved.html">View Saved Items</a>
       </nav>
     </header>
 
@@ -155,7 +142,6 @@
 
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
           .then((response) => response.json())
-
           .then((data) => {
             results.innerHTML = "";
 
@@ -180,14 +166,38 @@
 
 <button class="futuristic-btn">Order Now</button>
 
+<!-- ✅ SAVE BUTTON ADDED -->
+<button class="futuristic-btn"
+onclick="saveItem('${meal.idMeal}', '${meal.strMeal}', '${meal.strMealThumb}')">
+Save
+</button>
+
 </div>
 `;
             });
           })
-
           .catch((error) => {
             results.innerHTML = "<p>Failed to load desserts.</p>";
           });
+      }
+
+      // ✅ SAVE FUNCTION (PLACED CORRECTLY)
+      function saveItem(id, name, image) {
+        let saved = localStorage.getItem("savedDesserts");
+        saved = saved ? JSON.parse(saved) : [];
+
+        const exists = saved.some((item) => item.id === id);
+
+        if (exists) {
+          alert("Already saved!");
+          return;
+        }
+
+        saved.push({ id, name, image });
+
+        localStorage.setItem("savedDesserts", JSON.stringify(saved));
+
+        alert("Saved successfully!");
       }
     </script>
   </body>
