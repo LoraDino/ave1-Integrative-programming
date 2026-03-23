@@ -32,7 +32,7 @@
         justify-content: center;
         gap: 12px;
         flex-wrap: wrap;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
       }
 
       .search-box input {
@@ -43,6 +43,14 @@
         width: 260px;
         font-size: 15px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      .category-buttons {
+        margin-bottom: 30px;
+      }
+
+      .category-buttons button {
+        margin: 5px;
       }
 
       #results {
@@ -121,67 +129,106 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="Search cake, brownie, cookie..."
+          placeholder="Search for desserts..."
         />
-
         <button class="futuristic-btn" onclick="searchDessert()">Search</button>
+      </div>
+
+      <!-- CATEGORY BUTTONS -->
+      <div class="category-buttons">
+        <button class="futuristic-btn" onclick="filterCategory('cake')">
+          Cakes
+        </button>
+        <button class="futuristic-btn" onclick="filterCategory('cupcake')">
+          Cupcakes
+        </button>
+        <button class="futuristic-btn" onclick="filterCategory('cookie')">
+          Cookies
+        </button>
+        <button class="futuristic-btn" onclick="filterCategory('pie')">
+          Pies
+        </button>
+        <button class="futuristic-btn" onclick="filterCategory('brownie')">
+          Brownies
+        </button>
       </div>
 
       <div id="results"></div>
     </section>
 
     <script>
-      function searchDessert() {
-        const query = document.getElementById("searchInput").value;
+      let allDesserts = [];
+
+      fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert")
+        .then((res) => res.json())
+        .then((data) => {
+          allDesserts = data.meals;
+          displayDesserts(allDesserts);
+        });
+
+      function displayDesserts(list) {
         const results = document.getElementById("results");
+        results.innerHTML = "";
 
-        if (query === "") {
-          results.innerHTML = "<p>Please enter a dessert name.</p>";
-          return;
-        }
+        list.forEach((meal) => {
+          fetch(
+            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`,
+          )
+            .then((res) => res.json())
+            .then((detailData) => {
+              const detail = detailData.meals[0];
 
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
-          .then((response) => response.json())
-          .then((data) => {
-            results.innerHTML = "";
-
-            if (!data.meals) {
-              results.innerHTML = "<p>No desserts found.</p>";
-              return;
-            }
-
-            data.meals.forEach((meal) => {
               const price = (Math.random() * 8 + 4).toFixed(2);
 
+              // CLEAN DESCRIPTION (NO INSTRUCTIONS)
+              const description = `${detail.strMeal} is a ${detail.strCategory.toLowerCase()} dessert from ${detail.strArea}.`;
+
               results.innerHTML += `
-<div class="dessert-card">
+          <div class="dessert-card">
+            <div class="dessert-img">
+              <img src="${detail.strMealThumb}">
+            </div>
 
-<div class="dessert-img">
-<img src="${meal.strMealThumb}">
-</div>
+            <h3>${detail.strMeal}</h3>
 
-<h3>${meal.strMeal}</h3>
+            <p style="font-size:13px;color:#666;margin-bottom:8px;">
+              ${description}
+            </p>
 
-<p class="price">$${price}</p>
+            <p class="price">$${price}</p>
 
-<button class="futuristic-btn">Order Now</button>
+            <button class="futuristic-btn">Order Now</button>
 
-<!-- ✅ SAVE BUTTON ADDED -->
-<button class="futuristic-btn"
-onclick="saveItem('${meal.idMeal}', '${meal.strMeal}', '${meal.strMealThumb}')">
-Save
-</button>
-
-</div>
-`;
+            <button class="futuristic-btn"
+              onclick="saveItem('${detail.idMeal}', '${detail.strMeal}', '${detail.strMealThumb}')">
+              Save
+            </button>
+          </div>
+          `;
             });
-          })
-          .catch((error) => {
-            results.innerHTML = "<p>Failed to load desserts.</p>";
-          });
+        });
       }
 
-      // ✅ SAVE FUNCTION (PLACED CORRECTLY)
+      function searchDessert() {
+        const query = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        const filtered = allDesserts.filter((meal) =>
+          meal.strMeal.toLowerCase().includes(query),
+        );
+
+        displayDesserts(filtered);
+      }
+
+      function filterCategory(category) {
+        const filtered = allDesserts.filter((meal) =>
+          meal.strMeal.toLowerCase().includes(category),
+        );
+
+        displayDesserts(filtered);
+      }
+
       function saveItem(id, name, image) {
         let saved = localStorage.getItem("savedDesserts");
         saved = saved ? JSON.parse(saved) : [];
@@ -196,9 +243,20 @@ Save
         saved.push({ id, name, image });
 
         localStorage.setItem("savedDesserts", JSON.stringify(saved));
-
         alert("Saved successfully!");
       }
     </script>
+    <div id="dessertModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <img
+          id="modalImg"
+          style="width: 100%; border-radius: 12px; margin-bottom: 10px"
+        />
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <p id="modalPrice" class="price"></p>
+      </div>
+    </div>
   </body>
 </html>
